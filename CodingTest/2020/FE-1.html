@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <dl>
+    <dt>조건</dt>
+    <dd>* string타입</dd>
+    <dd>* 3 이상 50 이하의 길이</dd>
+    <dd>* 숫자를 제외한 한글 또는 알파벳, 공백</dd>
+  </dl>
+  <input type="text" placeholder="입력하세요." /><button onclick="btnClick()">Click</button>
+  <div></div>
+<script>
+  function btnClick() {
+    getName(document.querySelector('input').value);
+  }
+
+  function getName(name) {
+    const my = /^[a-zA-Z| |ㄱ-힣]{3,50}$/i;
+    const cutSize = name.length;
+    let cutMasked = '';
+    if (my.test(name)) {
+      for (let i = 0; cutSize - 2 > i; i++) {
+        cutMasked += "*";
+      }
+      return document.querySelector('div').innerHTML = '<span>' + name.slice(0, 2) + cutMasked + '</span>';
+    } else {
+      return document.querySelector('div').innerHTML = "다시";
+    }
+  }
+</script>
+</body>
+</html>
