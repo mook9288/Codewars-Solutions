@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <dl>
+    <dt>조건</dt>
+    <dd>* 숫자 0 이상 1,000,000,000 미만의 정수</dd>
+    <dd>* 천단위로 콤마(,) 찍기</dd>
+    <dd>* 문자열로 반환</dd>
+  </dl>
+  <input type="text" placeholder="x 값" /><button onclick="btnClick()">Click</button>
+  <div></div>
+<script>
+  function btnClick() {
+    getName(document.querySelector('input').value);
+  }
+
+  function getName(num) {
+    console.log(num);
+    const data = parseInt(num);
+    const dot = num.split(".")[0];
+    const retValue = '';
+    if(typeof data === 'number') {
+      for (let i = 1; i <= dot.length; i++) {
+        console.log(dot.length / 3);
+        // if (i > 1 && ( i % 3 ) !== 1 ) {
+        //   retValue 
+        // }
+      }
+    } else {
+      console.log("숫자가 아님")
+    }
+    return retValue;
+  }
+</script>
+</body>
+</html>
