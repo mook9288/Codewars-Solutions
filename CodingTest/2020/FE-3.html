@@ -20,21 +20,22 @@
   }
 
   function getName(num) {
-    console.log(num);
-    const data = parseInt(num);
     const dot = num.split(".")[0];
-    const retValue = '';
-    if(typeof data === 'number') {
-      for (let i = 1; i <= dot.length; i++) {
-        console.log(dot.length / 3);
-        // if (i > 1 && ( i % 3 ) !== 1 ) {
-        //   retValue 
-        // }
+    let retValue = '';
+    let i = 1;
+    // console.log(data);
+    if(!isNaN(num)) {
+      for (i; i <= dot.length; i++) {
+        if (i > 1 && ( i % 3 ) === 1 ) {
+          retValue = dot.charAt(dot.length - i) + "," + retValue;
+        } else {
+          retValue = dot.charAt(dot.length - i) + retValue;
+        }
       }
     } else {
-      console.log("숫자가 아님")
+      console.log("숫자가 아님");
     }
-    return retValue;
+    return document.querySelector('div').innerHTML = retValue;
   }
 </script>
 </body>
